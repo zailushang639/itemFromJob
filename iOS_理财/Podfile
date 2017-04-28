@@ -1,0 +1,76 @@
+platform :ios, '7.0'
+
+
+#友盟统计 //标准SDK，含IDFA
+#pod 'UMengAnalytics'
+
+
+#* [SAMAddressBar](https://github.com/soffes/SAMAddressBar) — Clone of Safari's address bar from iOS 6.
+#* [SAMBadgeView](https://github.com/soffes/SAMBadgeView) — Simple badge view.
+#* [SAMGradientView](https://github.com/soffes/SAMGradientView) — Easy gradients in UIKit.
+#* [SAMHUDView](https://github.com/soffes/SAMHUDView) — Kinda okay HUD.
+#* [SAMLabel](https://github.com/soffes/SAMLabel) — UILabel with vertical alignment and text insets.
+#* [SAMLoadingView](https://github.com/soffes/SAMLoadingView) — Simple loading view.
+#* [SAMCircleProgressView](https://github.com/soffes/SAMCircleProgressView) — Determinate, circular progress view.
+#* [SAMRateLimit](https://github.com/soffes/SAMRateLimit) — Simple utility for only executing code every so often.
+#* [SAMTextField](https://github.com/soffes/SAMTextField) — Handy UITextField additions like insetting text.
+#* [SAMTextView](https://github.com/soffes/SAMTextView) — Add a placeholder to UITextView.
+#* [SAMWebView](https://github.com/soffes/SAMWebView) — Push UIWebView to its limits.
+#* [SAMCategories](https://github.com/soffes/SAMCategories) — A collection of useful Foundation and UIKit
+
+#网络请求框架
+pod 'AFNetworking', '~> 2.5.3'
+
+#提示框
+#pod 'MBProgressHUD', '~> 0.8'
+pod 'MBProgressHUD', '~> 0.9.1'
+#pod 'MMProgressHUD', '~> 0.3.0'
+
+#动态隐藏标题栏
+pod 'AMScrollingNavbar', '~> 1.3.2'
+
+#友盟统计
+pod 'UMengAnalytics', '~> 3.4.4'
+
+#引导页面
+pod 'EAIntroView', '~> 2.6.0'
+
+# UIAlertView that work with blocks
+pod 'STAlertView', '~> 1.0.0'
+
+#缓存TMCache
+pod 'TMCache', '~> 1.2.3'
+
+#状态栏提示
+pod 'AFMInfoBanner', '~> 1.0.0'
+pod 'JDStatusBarNotification', '~> 1.5.0'
+
+#下拉刷新和上拉更多
+pod 'MJRefresh', '~> 0.0.1'
+
+#checkbox
+#pod 'SSCheckBoxView', '~> 0.2.1'
+
+#键盘
+#pod 'IQKeyboardManager'
+
+#进度条
+pod 'MDRadialProgress', '~> 1.3.1'
+
+#webView
+#pod 'TOWebViewController'
+
+#选择器
+pod 'ActionSheetPicker-3.0'
+#pod 'ActionSheetPicker-3.0', '~> 1.6.2'
+
+#FMDB数据库
+pod 'FMDB'
+
+#JSONKit
+pod 'JSONKit', '~> 1.5pre'
+
+#JS交互
+pod 'WebViewJavascriptBridge', '~> 5.0.5'
+#SDWebImage
+pod 'SDWebImage', '~> 3.7.6'

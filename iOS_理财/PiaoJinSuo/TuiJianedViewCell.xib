@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TuiJianedViewCell" rowHeight="36" id="KGk-i7-Jjw" customClass="TuiJianedViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册用户名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeU-ub-BK2">
+                        <rect key="frame" x="15" y="11" width="142" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="bQQ-KE-P14"/>
+                            <constraint firstAttribute="width" constant="142" id="y3t-PW-jS8"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.30588235294117649" green="0.32156862745098042" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-08-11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxZ-yl-eOS">
+                        <rect key="frame" x="202" y="11" width="100" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="GBI-y0-MU5"/>
+                            <constraint firstAttribute="height" constant="21" id="aKH-6D-e67"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.30588235294117649" green="0.32156862745098042" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="centerY" secondItem="jeU-ub-BK2" secondAttribute="centerY" id="cjQ-95-paQ"/>
+                    <constraint firstItem="jeU-ub-BK2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="l4c-pr-WLn"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="zxZ-yl-eOS" secondAttribute="trailing" constant="10" id="u8L-qt-69T"/>
+                    <constraint firstAttribute="centerY" secondItem="zxZ-yl-eOS" secondAttribute="centerY" id="yF9-xa-2Vr"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="ib_subTitle" destination="zxZ-yl-eOS" id="Hnf-gQ-UG6"/>
+                <outlet property="ib_title" destination="jeU-ub-BK2" id="ncB-Lf-fM8"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

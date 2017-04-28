@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DC1EC558-36EC-41A8-B48C-00C51790C135</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PiaoJinSuo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6E4660776900431EAB6A5850F647BED909FF5BF8</key>
+		<string>http://gitlab.vkelai.com/benxiang/piaojinsuo.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ios/PiaoJinSuo.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6E4660776900431EAB6A5850F647BED909FF5BF8</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>http://gitlab.vkelai.com/benxiang/piaojinsuo.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6E4660776900431EAB6A5850F647BED909FF5BF8</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6E4660776900431EAB6A5850F647BED909FF5BF8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>piaojinsuo</string>
+		</dict>
+	</array>
+</dict>
+</plist>
