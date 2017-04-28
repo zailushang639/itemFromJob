@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8495952e-4f8d-439e-a725-6ea4e6401237",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "8495952e-4f8d-439e-a725-6ea4e6401237" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8495952e-4f8d-439e-a725-6ea4e6401237" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "85A43595-5B88-40D0-949A-77A6E841C696",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8495952e-4f8d-439e-a725-6ea4e6401237" : "IOS\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "PJS",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "iOS_票据交易\/PJS.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/www.svn.piaojinsuo.com\/svn\/ios.app.piaojinsuo.com",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8495952e-4f8d-439e-a725-6ea4e6401237"
+    }
+  ]
+}

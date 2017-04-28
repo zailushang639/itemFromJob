@@ -1,0 +1,6 @@
+
+#引导页面
+pod 'EAIntroView', '~> 2.6.0'
+
+#选择器
+pod 'ActionSheetPicker-3.0'

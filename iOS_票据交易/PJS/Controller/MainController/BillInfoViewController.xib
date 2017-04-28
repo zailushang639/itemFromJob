@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BillInfoViewController">
+            <connections>
+                <outlet property="billId" destination="7HW-Um-KKB" id="bJT-ic-SEL"/>
+                <outlet property="piaohao" destination="7HW-Um-KKB" id="hIj-2r-MnW"/>
+                <outlet property="tableView" destination="mhQ-x6-w2x" id="ha9-Ra-fWd"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mhQ-x6-w2x">
+                    <rect key="frame" x="0.0" y="45" width="320" height="523"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7HW-Um-KKB">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="zBs-2r-fqU"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="7HW-Um-KKB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0KK-Ek-vXc"/>
+                <constraint firstAttribute="trailing" secondItem="7HW-Um-KKB" secondAttribute="trailing" id="Epf-y7-MtD"/>
+                <constraint firstAttribute="bottom" secondItem="mhQ-x6-w2x" secondAttribute="bottom" id="gpk-RD-8C6"/>
+                <constraint firstAttribute="trailing" secondItem="mhQ-x6-w2x" secondAttribute="trailing" id="juC-xJ-DRd"/>
+                <constraint firstItem="mhQ-x6-w2x" firstAttribute="top" secondItem="7HW-Um-KKB" secondAttribute="bottom" constant="5" id="uIU-Yh-Uib"/>
+                <constraint firstItem="mhQ-x6-w2x" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wIz-Vy-qZw"/>
+                <constraint firstItem="7HW-Um-KKB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wuN-Cu-5bb"/>
+            </constraints>
+            <point key="canvasLocation" x="300" y="384"/>
+        </view>
+    </objects>
+</document>
