@@ -122,8 +122,8 @@
             NSDictionary *tmpDic = [mArrData objectAtIndex:i];
             
             NSDate *tmpDate = [NSDate dateWithString:[tmpDic stringForKey:@"end_time"] format:@"yyyy-MM-dd"];
-            if (![tmpDate isLaterThanDate:[NSDate new]]) {//这里的代码没问题tmpDate会自动被提前八小时，[NSDate new]也比当前时间晚八个小时
-                
+            NSDate *tmpDate2 = [NSDate dateWithTimeInterval:24*60*60 sinceDate:tmpDate];//(要加一天)这里的代码没问题tmpDate会自动被提前八小时，[NSDate new]也比当前时间晚八个小时
+            if (![tmpDate2 isLaterThanDate:[NSDate new]]) {
                 [mArrData removeObjectAtIndex:i];
                 
             }
