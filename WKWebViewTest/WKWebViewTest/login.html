@@ -35,10 +35,10 @@
                 window.NativeBridge('show1')
             }
             function callFromOC(value) {
-                //var j = document.getElementById("ElementB");
-                //var top = j.style.top;
-                //var new_top=parseInt(top.substr(0,top.length-2));
-                //j.style.top=(new_top+10)+"px";
+                var j = document.getElementById("ElementB");
+                var top = j.style.top;
+                var new_top = parseInt(top.substr(0,top.length-2));
+                j.style.top = (new_top+10)+"px";
                 //alert(value);
                 get_is_set_gesture_password = value;
             }

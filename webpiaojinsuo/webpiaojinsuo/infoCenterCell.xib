@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="infoCenterCell" rowHeight="65" id="KGk-i7-Jjw" customClass="infoCenterCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="【重要】关于2月23日23:00-24:00存钱罐账户暂停服务的通知" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIy-lG-gHs">
+                        <rect key="frame" x="5" y="10" width="330" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="LtZ-5Z-BdH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-01-19 15:27:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K3k-r2-mni">
+                        <rect key="frame" x="5" y="37.5" width="120" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="Uoh-by-7bM"/>
+                            <constraint firstAttribute="width" constant="120" id="WCq-Vb-2fu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y0c-ex-xEh">
+                        <rect key="frame" x="0.0" y="60.5" width="375" height="3.5"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="3" id="9yo-H2-5Nw"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFh-pc-qzV">
+                        <rect key="frame" x="350" y="22" width="20" height="16.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="3SK-7S-pgM"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="TableViewArrow"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="gFh-pc-qzV" secondAttribute="trailing" constant="5" id="63A-hA-xkl"/>
+                    <constraint firstItem="gFh-pc-qzV" firstAttribute="leading" secondItem="pIy-lG-gHs" secondAttribute="trailing" constant="15" id="9aG-qA-cir"/>
+                    <constraint firstItem="pIy-lG-gHs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="LXd-8A-mqx"/>
+                    <constraint firstAttribute="bottom" secondItem="y0c-ex-xEh" secondAttribute="bottom" id="Mox-rq-fle"/>
+                    <constraint firstAttribute="trailing" secondItem="y0c-ex-xEh" secondAttribute="trailing" id="O5D-ko-0aF"/>
+                    <constraint firstItem="K3k-r2-mni" firstAttribute="leading" secondItem="pIy-lG-gHs" secondAttribute="leading" id="Ywj-ee-KhA"/>
+                    <constraint firstItem="pIy-lG-gHs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="adn-z0-CXZ"/>
+                    <constraint firstItem="y0c-ex-xEh" firstAttribute="top" secondItem="K3k-r2-mni" secondAttribute="bottom" constant="8" id="ged-ln-buc"/>
+                    <constraint firstItem="gFh-pc-qzV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="jCa-pP-hT6"/>
+                    <constraint firstItem="y0c-ex-xEh" firstAttribute="top" secondItem="gFh-pc-qzV" secondAttribute="bottom" constant="22" id="jhC-nU-QN1"/>
+                    <constraint firstItem="y0c-ex-xEh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="kPO-NV-ZZV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="226" y="17"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="TableViewArrow" width="15" height="15"/>
+    </resources>
+</document>

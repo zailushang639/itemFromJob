@@ -29,6 +29,7 @@
 
 
 #define baseUrl    @"https://www.uat.piaojinsuo.com/?from=ios"
+#define baseUrl2    @"https://www.piaojinsuo.win/?from=ios"
 #define baseDevUrl @"http://www.dev.piaojinsuo.com/?from=ios"
 #define loginHTMLUrl @"file:///Users/pjs/Library/Developer/CoreSimulator/Devices/"
 

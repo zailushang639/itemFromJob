@@ -8,6 +8,7 @@
 
 #import "SubViewController.h"
 #import "HomeProductCell.h"
+#import "HomeProductOutCell.h"
 @interface SubViewController ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView *mTableView;
@@ -21,12 +22,17 @@
     [self creatUI];
 }
 -(void)creatUI{
-    mTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 5, KScreenWidth, KScreenHeight-99) style:UITableViewStylePlain];
+    mTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, KScreenHeight-144) style:UITableViewStylePlain];//导航栏64 + ScroView30 + 底部tabBar50
     mTableView.showsVerticalScrollIndicator = NO;
     mTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     mTableView.backgroundColor = [UIColor groupTableViewBackgroundColor];
     mTableView.delegate = self;
     mTableView.dataSource = self;
+    
+    UIView * headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 5)];
+    headView.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    mTableView.tableHeaderView = headView;
+    
     [self.view addSubview:mTableView];
 }
 
@@ -44,7 +50,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return 14;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString * CustomTableViewIdentifier =@"HomeProductCell2";
@@ -52,7 +58,9 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle]loadNibNamed:@"HomeProductCell" owner:self options:nil] firstObject];
     }
+    
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    [cell setRedViewRatio:0.88];
     [cell setCellButtonAction:^{
         [self.delegate turnToNextPage:[BuyViewController new]];
     }];

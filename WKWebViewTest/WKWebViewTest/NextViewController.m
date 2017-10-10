@@ -7,6 +7,7 @@
 //
 
 #import "NextViewController.h"
+#import <UMSocialCore/UMSocialCore.h>
 @interface NextViewController ()
 {
     NSString *currentVersion;
@@ -157,7 +158,7 @@
 }
 - (void)upDataAction {
     //执行退出登录操作,之后跳转到AppStore更新
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/cn/app/piao-jin-suo/id1055279350?mt=8"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/cn/app/piao-jin-suo/id1221865339?mt=8"]];
     
 }
 
@@ -408,6 +409,115 @@
     //            NSLog(@"addNotificationRequest error %@", error);
     //        }
     //    }];
+
+    
+    
+    // Appdelegate 里的代码
+    //4. app在杀死状态时, 推送上报触发的是didFinishLaunchingWithOptions事件。
+    //   如果URL不为nil, 则跳转到推送消息的页面
+    //**************   用 NSUserDefaults 保存推送过来的 URL 在ViewController里面检测是否有推送 URL 的存在 有的话则跳转
+    //    if ([[launchOptions objectForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"] objectForKey:@"url"])
+    //    {
+    //        NSLog(@"OK launchOptions---->%@",launchOptions);
+    //        NSString *urlStr = [[launchOptions objectForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"] objectForKey:@"url"];
+    //
+    //        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    //        [userDefaults setObject:urlStr forKey:@"urlByNotification"];
+    //        [userDefaults synchronize];
+    //
+    //
+    //        [XGPush handleLaunching:launchOptions successCallback:^{
+    //            NSLog(@"[XGDemo] Handle receive success");
+    //        } errorCallback:^{
+    //            NSLog(@"[XGDemo] Handle receive error");
+    //        }];
+    //
+    //
+    //    }
+    
+    // 主视图控制器里的代码
+    //-(void)viewWillAppear:(BOOL)animated{
+    //    NSLog(@"ViewController---->viewWillAppear");
+    //    if ([[NSUserDefaults standardUserDefaults]objectForKey:@"urlByNotification"]) {
+    //        NSLog(@"!!!!!!_________!!!!!updateForNotification");
+    //        [self updateForNotification:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults]objectForKey:@"urlByNotification"]]];
+    //
+    //    }
+    //}
+    
+    
+    ////接收到通知的方法
+    //-(void)updateForNotification:(NSURL *)url
+    //{
+    //    if (url != nil)
+    //    {
+    //        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    //        [userDefaults setObject:nil forKey:@"urlByNotification"];
+    //        [userDefaults synchronize];
+    //
+    //        notificationViewController *noVc = [[notificationViewController alloc]init];
+    //        noVc.url = url;
+    //        NSLog(@"updateForNotification:%@",url);
+    //        [self.navigationController pushViewController:noVc animated:YES];
+    //    }
+    //}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//    //iOS原生分享 http://blog.csdn.net/zxtc19920/article/details/53432347
+//    -(void)share:(id)sender{
+//        
+//        NSArray *activityItems;//建立数组，里面存储需要分享的内容
+//        NSString * sharingTitle = (NSString *)[sender objectForKey:@"title"];
+//        NSString * sharingText = (NSString *)[sender objectForKey:@"desc"];//[NSString stringWithFormat:@"《票金所》真棒，太好听了,我推荐给大家,下载地址：http://itunes.apple.com/cn/app/id"];
+//        //需要分享的文字，[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]获取应用名称
+//        UIImage * sharingImage1 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[sender objectForKey:@"image"]]]];
+//        UIImage * sharingImage = [UIImage imageNamed:@"58.png"];
+//        NSURL *url = [NSURL URLWithString:[sender objectForKey:@"url"]];
+//        //需要分享的图片
+//        if (sharingImage1 != nil) {
+//            activityItems = @[sharingTitle,sharingTitle, sharingImage1, url];
+//        } else {
+//            activityItems = @[sharingTitle,sharingText, sharingImage, url];
+//        }
+//        
+//        //里面写你不想出现在分享中的一些系统自带的平台
+//        NSArray *excludeActivities = @[UIActivityTypePostToFacebook, UIActivityTypePostToTwitter, UIActivityTypeAirDrop, UIActivityTypeAssignToContact];
+//        
+//        
+//        UIActivityViewControllerCompletionWithItemsHandler myBlock = ^(NSString *activityType,BOOL completed,NSArray *returnedItems,NSError *activityError)
+//        {
+//            NSLog(@"activityType :%@", activityType);
+//            if (completed)
+//            {
+//                NSLog(@"分享完成--completed");
+//            }
+//            else
+//            {
+//                NSLog(@"分享取消--cancel");
+//            }
+//            
+//        };
+//        
+//        
+//        UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+//        controller.excludedActivityTypes = excludeActivities;
+//        //初始化completionHandler，当post结束之后（无论是done还是cancell）该blog都会被调用
+//        controller.completionWithItemsHandler = myBlock;
+//        
+//        [self presentViewController:controller animated:YES completion:nil];
+//        
+//        
+//    }
+
 
 }
 /*

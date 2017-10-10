@@ -10,4 +10,7 @@
 
 @interface DiscoverMiddleCell : UITableViewCell
 
+
+
+
 @end

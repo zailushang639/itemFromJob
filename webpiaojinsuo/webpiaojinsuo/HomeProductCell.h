@@ -13,6 +13,12 @@ typedef void(^CellBlockButton)();
 @interface HomeProductCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIButton *goumaiBtn;
 
+@property (strong, nonatomic) IBOutlet UIView *grayView;
+
+@property (strong, nonatomic) IBOutlet UILabel *ratioLab;
+
 @property (nonatomic, copy) CellBlockButton cellBlock;
 - (void)setCellButtonAction:(CellBlockButton)block;
+
+- (void)setRedViewRatio:(CGFloat)a;
 @end

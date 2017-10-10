@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DhCollectionViewCell" id="gTV-IL-0wX" customClass="DhCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5元现金红包" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bj7-1a-tXb">
+                        <rect key="frame" x="20" y="15" width="100" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="AhL-Zr-g7W"/>
+                            <constraint firstAttribute="height" constant="20" id="e3g-fA-xOZ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5000积分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfn-Hm-fO5">
+                        <rect key="frame" x="20" y="40" width="100" height="20"/>
+                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="bcc-Vw-Bw3">
+                        <rect key="frame" x="75" y="75" width="100" height="110"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="110" id="Xel-g9-oDD"/>
+                            <constraint firstAttribute="width" constant="100" id="cGs-ae-b5r"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h09-jA-m8w">
+                        <rect key="frame" x="15" y="215" width="220" height="25"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="KrO-3P-8ms"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="立即兑换"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="duihuan:" destination="gTV-IL-0wX" eventType="touchUpInside" id="L4n-Zq-L9o"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="h09-jA-m8w" secondAttribute="bottom" constant="10" id="6aD-ed-WMJ"/>
+                <constraint firstItem="bj7-1a-tXb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="Bed-Nr-Wxa"/>
+                <constraint firstAttribute="trailing" secondItem="h09-jA-m8w" secondAttribute="trailing" constant="15" id="BxQ-Vc-IFV"/>
+                <constraint firstItem="Zfn-Hm-fO5" firstAttribute="height" secondItem="bj7-1a-tXb" secondAttribute="height" id="KFa-YV-J31"/>
+                <constraint firstItem="bcc-Vw-Bw3" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="SgG-VC-fXF"/>
+                <constraint firstItem="Zfn-Hm-fO5" firstAttribute="width" secondItem="bj7-1a-tXb" secondAttribute="width" id="WtE-cC-3aJ"/>
+                <constraint firstItem="Zfn-Hm-fO5" firstAttribute="top" secondItem="bj7-1a-tXb" secondAttribute="bottom" constant="5" id="XZr-BI-HJG"/>
+                <constraint firstItem="Zfn-Hm-fO5" firstAttribute="leading" secondItem="bj7-1a-tXb" secondAttribute="leading" id="a4N-ND-GVR"/>
+                <constraint firstItem="h09-jA-m8w" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="bC0-EL-vue"/>
+                <constraint firstItem="bcc-Vw-Bw3" firstAttribute="top" secondItem="Zfn-Hm-fO5" secondAttribute="bottom" constant="15" id="fRv-9V-dfG"/>
+                <constraint firstItem="bj7-1a-tXb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="tzQ-HO-MXY"/>
+                <constraint firstItem="h09-jA-m8w" firstAttribute="centerX" secondItem="bcc-Vw-Bw3" secondAttribute="centerX" id="uLI-fk-14A"/>
+            </constraints>
+            <size key="customSize" width="267" height="247"/>
+            <connections>
+                <outlet property="cashLabel" destination="bj7-1a-tXb" id="lH1-ot-kMI"/>
+                <outlet property="duihuanBtn" destination="h09-jA-m8w" id="Af0-WZ-HCF"/>
+                <outlet property="hbImageView" destination="bcc-Vw-Bw3" id="fZJ-uQ-j9o"/>
+                <outlet property="jifenLabel" destination="Zfn-Hm-fO5" id="1j3-3B-LZB"/>
+            </connections>
+            <point key="canvasLocation" x="-239" y="-12"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="5" width="75" height="75"/>
+    </resources>
+</document>

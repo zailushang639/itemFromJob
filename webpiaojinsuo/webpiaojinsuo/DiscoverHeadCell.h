@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DiscoverHeadCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UIImageView *headImageView;
 
 @end

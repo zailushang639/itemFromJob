@@ -13,6 +13,9 @@
 #import "XGPush.h"
 #import "XGSetting.h"
 #import <UserNotifications/UserNotifications.h>
+#import <UMSocialCore/UMSocialCore.h>
+#import "rootViewController.h"
+#define umSocialAppkey @"5994f63e99f0c7736b002ec6"
 #define _IPHONE80_ 80000
 @interface AppDelegate ()<UNUserNotificationCenterDelegate,UIApplicationDelegate>
 {
@@ -38,10 +41,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    
+    /*****************************    友盟分享      *******************/
+    [[UMSocialManager defaultManager] openLog:YES];
+    /* 设置友盟appkey */
+    [[UMSocialManager defaultManager] setUmSocialAppkey:umSocialAppkey];
+    [self configUSharePlatforms];
+    [self confitUShareSettings];
+    
+    
+    
+    /*****************************    信鸽推送      *******************/
     [XGPush startApp:2200254416 appKey:@"I53NY3G2M4YY"];
     //下面这句话在info.plist里View controller-based status bar appearance设置为NO才可以
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
+//    [XGPush setAccount:@"111111" successCallback:^{
+//        NSLog(@"setSuccess");
+//    } errorCallback:^{
+//        NSLog(@"setError");
+//    }];
     
     float sysVer = [[[UIDevice currentDevice] systemVersion] floatValue];
     if(sysVer < 8)
@@ -82,14 +100,14 @@
     //[XGPush clearLocalNotifications];
     
     
+    
+    
     //启动APP的时候清cookie以外的信息
     [self deleteWebCache];
     [self clearHomeCache];
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:[ViewController new]];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:[rootViewController new]];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     
@@ -106,20 +124,16 @@
     
     [self.window addSubview:launchView];
     
-    [UIView animateWithDuration:4 delay:0.5 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+    [UIView animateWithDuration:5 delay:0.5 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
         
         launchView.alpha =0.0f;
         
         launchView.layer.transform = CATransform3DScale(CATransform3DIdentity, 1.2, 1.2, 1);
         
-        
-        
     } completion:^(BOOL finished) {
         
-        
-        
         [launchView removeFromSuperview];
-        
+        NSLog(@"============");
         
         
     }];
@@ -389,7 +403,70 @@
 }
 
 
+- (void)confitUShareSettings
+{
+    /*
+     * 打开图片水印
+     */
+    [UMSocialGlobal shareInstance].isUsingWaterMark = YES;
+    [UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = NO;
+    
+}
 
+- (void)configUSharePlatforms
+{
+    /*
+     设置微信的appKey和appSecret
+     [微信平台从U-Share 4/5升级说明]http://dev.umeng.com/social/ios/%E8%BF%9B%E9%98%B6%E6%96%87%E6%A1%A3#1_1
+     */
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wx3a49cd23af76bc0d" appSecret:@"b581b3698dc9340dc132d5bae623d9bd" redirectURL:nil];//b581b3698dc9340dc132d5bae623d9bd
+    /*
+     * 移除相应平台的分享，如微信收藏
+     */
+    [[UMSocialManager defaultManager] removePlatformProviderWithPlatformTypes:@[@(UMSocialPlatformType_WechatFavorite)]];
+    
+    /* 设置分享到QQ互联的appID
+     * U-Share SDK为了兼容大部分平台命名，统一用appKey和appSecret进行参数设置，而QQ平台仅需将appID作为U-Share的appKey参数传进即可。
+     100424468.no permission of union id
+     [QQ/QZone平台集成说明]http://dev.umeng.com/social/ios/%E8%BF%9B%E9%98%B6%E6%96%87%E6%A1%A3#1_3
+     */
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"1106358256"/*设置QQ平台的appID*/  appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
+    
+    
+}
+
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED > 100000
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
+{
+    //6.3的新的API调用，是为了兼容国外平台(例如:新版facebookSDK,VK等)的调用[如果用6.2的api调用会没有回调],对国内平台没有影响。
+    BOOL result = [[UMSocialManager defaultManager]  handleOpenURL:url options:options];
+    if (!result) {
+        // 其他如支付等SDK的回调
+    }
+    return result;
+}
+
+#endif
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    //6.3的新的API调用，是为了兼容国外平台(例如:新版facebookSDK,VK等)的调用[如果用6.2的api调用会没有回调],对国内平台没有影响
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
+    if (!result) {
+        // 其他如支付等SDK的回调
+    }
+    return result;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
+    if (!result) {
+        // 其他如支付等SDK的回调
+    }
+    return result;
+}
 
 
 /*

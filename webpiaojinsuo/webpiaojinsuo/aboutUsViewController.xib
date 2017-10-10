@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="aboutUsViewController">
+            <connections>
+                <outlet property="mScroView" destination="Nea-4p-3HU" id="iIJ-P6-V7R"/>
+                <outlet property="segControl" destination="olf-8y-Ecl" id="Kiz-3b-fcg"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="view1" destination="Dtd-Ju-8Eg" id="hev-f4-GdA"/>
+                <outlet property="view2" destination="tQ1-7i-Lng" id="f6B-CQ-p7V"/>
+                <outlet property="view3" destination="128-O9-yq0" id="Gl1-YR-zDE"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="olf-8y-Ecl">
+                    <rect key="frame" x="20" y="5" width="335" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="z9z-AQ-0zz"/>
+                    </constraints>
+                    <segments>
+                        <segment title="公司简介"/>
+                        <segment title="管理团队"/>
+                        <segment title="联系我们"/>
+                    </segments>
+                </segmentedControl>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="99" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nea-4p-3HU">
+                    <rect key="frame" x="0.0" y="40" width="375" height="627"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dtd-Ju-8Eg" userLabel="View1">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="627"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQ1-7i-Lng" userLabel="View2">
+                            <rect key="frame" x="374" y="0.0" width="374" height="627"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="128-O9-yq0" userLabel="View3">
+                            <rect key="frame" x="748" y="0.0" width="374" height="627"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="128-O9-yq0" firstAttribute="leading" secondItem="tQ1-7i-Lng" secondAttribute="trailing" id="8dC-ek-h02"/>
+                        <constraint firstItem="Dtd-Ju-8Eg" firstAttribute="centerY" secondItem="Nea-4p-3HU" secondAttribute="centerY" id="BcF-l1-PAv"/>
+                        <constraint firstItem="Dtd-Ju-8Eg" firstAttribute="leading" secondItem="Nea-4p-3HU" secondAttribute="leading" id="P7p-U1-Iou"/>
+                        <constraint firstItem="Dtd-Ju-8Eg" firstAttribute="top" secondItem="Nea-4p-3HU" secondAttribute="top" id="Rz4-Wc-nQX"/>
+                        <constraint firstItem="tQ1-7i-Lng" firstAttribute="width" secondItem="Dtd-Ju-8Eg" secondAttribute="width" id="VOg-NP-gpC"/>
+                        <constraint firstItem="tQ1-7i-Lng" firstAttribute="leading" secondItem="Dtd-Ju-8Eg" secondAttribute="trailing" id="ZOg-JE-jOm"/>
+                        <constraint firstAttribute="bottom" secondItem="Dtd-Ju-8Eg" secondAttribute="bottom" id="ZSq-QX-SZx"/>
+                        <constraint firstItem="tQ1-7i-Lng" firstAttribute="bottom" secondItem="Dtd-Ju-8Eg" secondAttribute="bottom" id="b8f-Fg-wcy"/>
+                        <constraint firstItem="tQ1-7i-Lng" firstAttribute="top" secondItem="Dtd-Ju-8Eg" secondAttribute="top" id="dcd-Zk-Fkv"/>
+                        <constraint firstItem="128-O9-yq0" firstAttribute="top" secondItem="tQ1-7i-Lng" secondAttribute="top" id="iD5-ml-8mH"/>
+                        <constraint firstItem="128-O9-yq0" firstAttribute="width" secondItem="tQ1-7i-Lng" secondAttribute="width" id="oPA-7z-XIK"/>
+                        <constraint firstAttribute="trailing" secondItem="Dtd-Ju-8Eg" secondAttribute="trailing" id="odt-D8-aL1"/>
+                        <constraint firstItem="Dtd-Ju-8Eg" firstAttribute="centerX" secondItem="Nea-4p-3HU" secondAttribute="centerX" id="vhL-rT-4kZ"/>
+                        <constraint firstItem="128-O9-yq0" firstAttribute="bottom" secondItem="tQ1-7i-Lng" secondAttribute="bottom" id="ync-wX-GU2"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="olf-8y-Ecl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="5" id="Fbx-sE-EUe"/>
+                <constraint firstItem="Nea-4p-3HU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="X9O-vv-CcE"/>
+                <constraint firstItem="olf-8y-Ecl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="b8N-gH-fdD"/>
+                <constraint firstAttribute="trailing" secondItem="olf-8y-Ecl" secondAttribute="trailing" constant="20" id="pVI-N4-jU3"/>
+                <constraint firstAttribute="trailing" secondItem="Nea-4p-3HU" secondAttribute="trailing" id="tXE-hK-9fK"/>
+                <constraint firstItem="Nea-4p-3HU" firstAttribute="top" secondItem="olf-8y-Ecl" secondAttribute="bottom" constant="5" id="ym8-dr-zzg"/>
+                <constraint firstAttribute="bottom" secondItem="Nea-4p-3HU" secondAttribute="bottom" id="z7l-xf-w0b"/>
+            </constraints>
+            <point key="canvasLocation" x="-289" y="11"/>
+        </view>
+    </objects>
+</document>

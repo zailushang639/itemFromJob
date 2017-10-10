@@ -31,14 +31,13 @@
     [self addScroView];
     [self addRightNavBarWithImage:[UIImage imageNamed:@"navRight"] withTitle:nil];
     
-    
     [self prepareData];
     [self configPageViewController];
 }
 -(void)addScroView{
     self.automaticallyAdjustsScrollViewInsets =NO;
     
-    scrollerView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 64, KScreenWidth, 30)];
+    scrollerView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, KScreenWidth, 30)];
     scrollerView.backgroundColor = [UIColor whiteColor];
     scrollerView.alpha = 1;
     scrollerView.contentSize = CGSizeMake(60*9+20, 30);//9个60长度的 button
@@ -65,6 +64,7 @@
         if (i ==0)
         {
             coverView.frame = CGRectMake(btn.frame.origin.x, 28, btn.frame.size.width, 2);
+            btn.selected = YES;
             selectedButton = btn;
         }
     }
@@ -106,7 +106,7 @@
     SubViewController * sub = [_dataArray[_currentPage]viewController];
     sub.delegate = self;
     [_pageViewController setViewControllers:@[sub] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
-    _pageViewController.view.frame = CGRectMake(0, 94, KScreenWidth, KScreenHeight-94);
+    _pageViewController.view.frame = CGRectMake(0, 30, KScreenWidth, KScreenHeight-74);
     _pageViewController.delegate = self;
     _pageViewController.dataSource = self;
     

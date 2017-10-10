@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
-
+#import "SDWebImageManager.h"
+#import "UIImageView+WebCache.h"
+#import "LoginViewController.h"
 @interface BaseViewController ()
 {
     UIView *statusBarView;
@@ -23,6 +25,8 @@
 }
 //导航栏背景色设置
 -(void)setNavigationBarColor:(NSInteger)a{
+    [[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
     self.navigationController.navigationBar.barTintColor = a==1? RedstatusBar:BlackstatusBar ;
 }
 //导航栏右侧添加按钮
@@ -45,7 +49,7 @@
         button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.titleLabel.font = [UIFont systemFontOfSize:13 weight:0.1];
         button.titleLabel.textAlignment = NSTextAlignmentRight;
-        button.frame = CGRectMake(0, 0, 80, 20);
+        button.frame = CGRectMake(10, 0, 70, 20);
         [button setTitle:titleStr forState:UIControlStateNormal];
         [button setTintColor:[UIColor whiteColor]];
         [button addTarget:self action:@selector(navRightAction) forControlEvents:UIControlEventTouchUpInside];
@@ -64,6 +68,66 @@
 -(void)navRightAction{
     NSLog(@"重写navRightAction");
 }
+
+
+//登录
+-(void)loginAction{
+    UIStoryboard *secondStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController* login = [secondStoryBoard instantiateViewControllerWithIdentifier:@"s_LoginViewController"];
+    
+//    login.loginActionResult = ^(){
+//        [self loginResult];
+//    };
+//    
+//    login.loginActionCancel = ^(){
+//        [self loginCancel];
+//    };
+//    
+//    login.loginActionFailure = ^(){
+//        [self loginFailure];
+//    };
+    
+    [self.navigationController presentViewController:login animated:NO completion:^{
+    }];
+}
+
+
+- (void)showTextErrorDialog:(NSString*)text{
+    UIAlertController *alert1 = [UIAlertController alertControllerWithTitle:@"" message:text preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *al1 = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil];
+    [alert1 addAction:al1];
+    [self presentViewController:alert1 animated:YES completion:nil];
+}
+- (void)downLoadWithImageView:(UIImageView *)imageView withUrlString:(NSString *)urlStr{
+    [imageView sd_setImageWithURL:[NSURL URLWithString:urlStr] placeholderImage:[UIImage imageNamed:@"null"] options:SDWebImageCacheMemoryOnly | SDWebImageProgressiveDownload progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+        
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+        switch (cacheType) {
+            case SDImageCacheTypeNone:
+                NSLog(@"直接下载");
+                break;
+            case SDImageCacheTypeDisk:
+                NSLog(@"磁盘缓存");
+                break;
+            case SDImageCacheTypeMemory:
+                NSLog(@"内存缓存");
+                break;
+            default:
+                break;
+        }
+        imageView.image = image;
+    }];
+    
+}
+
+
+
+
+
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

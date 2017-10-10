@@ -11,7 +11,7 @@
 static NSString * ImgCellReuse = @"ImgCell";
 @interface ImgCell : UICollectionViewCell
 
-@property (nonatomic,strong)NSString * imgString;
+@property (nonatomic,copy)NSString * imgString;
 @property (nonatomic,strong)UIImage * placeHolder;
 
 @end

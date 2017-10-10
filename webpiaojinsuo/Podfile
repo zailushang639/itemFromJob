@@ -1,4 +1,4 @@
-target ‘webpiaojinsuo’ do
+target ‘webpiaojinsuo‘ do
     
 platform :ios, '7.0'
 

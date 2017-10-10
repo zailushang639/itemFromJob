@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="duiHuanMemoViewCell" rowHeight="40" id="KGk-i7-Jjw" customClass="duiHuanMemoViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="41"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="40.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="奖品名称" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGF-2v-RMB">
+                        <rect key="frame" x="0.0" y="10" width="94" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="获取来源" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79c-wG-5tF">
+                        <rect key="frame" x="94" y="10" width="93.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="获取时间" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfO-ny-403">
+                        <rect key="frame" x="187.5" y="10" width="94" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="领取状态" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUd-sm-ZV1">
+                        <rect key="frame" x="281.5" y="10" width="93.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSH-wC-cf2">
+                        <rect key="frame" x="0.0" y="39" width="375" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Wac-HZ-70z"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                <constraints>
+                    <constraint firstItem="zGF-2v-RMB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="34X-fW-e4j"/>
+                    <constraint firstAttribute="bottom" secondItem="KfO-ny-403" secondAttribute="bottom" constant="11" id="6mu-1w-V01"/>
+                    <constraint firstItem="EUd-sm-ZV1" firstAttribute="leading" secondItem="KfO-ny-403" secondAttribute="trailing" id="A7W-j4-zIX"/>
+                    <constraint firstItem="HSH-wC-cf2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="B7Q-bD-kLy"/>
+                    <constraint firstAttribute="trailing" secondItem="HSH-wC-cf2" secondAttribute="trailing" id="JLW-t3-FbR"/>
+                    <constraint firstAttribute="bottom" secondItem="EUd-sm-ZV1" secondAttribute="bottom" constant="11" id="PDY-GZ-L8D"/>
+                    <constraint firstItem="KfO-ny-403" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="RGo-Ys-MX0"/>
+                    <constraint firstItem="79c-wG-5tF" firstAttribute="width" secondItem="zGF-2v-RMB" secondAttribute="width" id="U3l-hf-aB0"/>
+                    <constraint firstAttribute="bottom" secondItem="HSH-wC-cf2" secondAttribute="bottom" id="Una-2H-PiN"/>
+                    <constraint firstItem="zGF-2v-RMB" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" multiplier="0.25" id="X5D-IA-Llg"/>
+                    <constraint firstItem="79c-wG-5tF" firstAttribute="leading" secondItem="zGF-2v-RMB" secondAttribute="trailing" id="Yba-Ic-Q72"/>
+                    <constraint firstAttribute="bottom" secondItem="79c-wG-5tF" secondAttribute="bottom" constant="11" id="Zcc-H6-HmI"/>
+                    <constraint firstItem="KfO-ny-403" firstAttribute="leading" secondItem="79c-wG-5tF" secondAttribute="trailing" id="aXU-dZ-HIe"/>
+                    <constraint firstItem="EUd-sm-ZV1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="g31-CO-LGy"/>
+                    <constraint firstItem="EUd-sm-ZV1" firstAttribute="width" secondItem="KfO-ny-403" secondAttribute="width" id="iTq-DT-psk"/>
+                    <constraint firstAttribute="bottom" secondItem="zGF-2v-RMB" secondAttribute="bottom" constant="11" id="jV8-lP-zAe"/>
+                    <constraint firstItem="zGF-2v-RMB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ksK-6e-tgI"/>
+                    <constraint firstItem="79c-wG-5tF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="tSr-y3-eOX"/>
+                    <constraint firstItem="KfO-ny-403" firstAttribute="width" secondItem="79c-wG-5tF" secondAttribute="width" id="thB-d4-IAv"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="label1" destination="zGF-2v-RMB" id="iSr-8o-ncc"/>
+                <outlet property="label2" destination="79c-wG-5tF" id="tBE-nX-Blu"/>
+                <outlet property="label3" destination="KfO-ny-403" id="M3Y-gZ-YeP"/>
+                <outlet property="label4" destination="EUd-sm-ZV1" id="fkd-We-MKh"/>
+            </connections>
+            <point key="canvasLocation" x="-92.5" y="99.5"/>
+        </tableViewCell>
+    </objects>
+</document>

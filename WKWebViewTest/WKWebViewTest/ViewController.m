@@ -10,19 +10,23 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import <WebKit/WebKit.h>
+#import "PrefixHeader.pch"
 #import <JavaScriptCore/JavaScriptCore.h>
 #import <WebKit/WKScriptMessageHandler.h>
-#import "MBProgressHUD/MBProgressHUD.h"
 #import "ScroLabelView.h"
 #import "Define.h"
 #import "XGPush.h"
 #import "notificationViewController.h"
 #import "CLLockVC.h"
+#import "AFNetworking/AFNetworking.h"
+#import <UMSocialCore/UMSocialCore.h>
 
 @interface ViewController ()<WKScriptMessageHandler,WKNavigationDelegate,WKUIDelegate,UINavigationControllerDelegate>
 {
     WKWebView *kwebView;
     UIView *statusBarView;
+    NSURLRequest * urlReuqest;
+    NSInteger dayInteger;
 }
 @property (strong, nonatomic)  ScroLabelView *scroLabel;
 @end
@@ -62,13 +66,27 @@ static NSString *notice_index;
     kwebView.scrollView.showsVerticalScrollIndicator = NO;//隐藏滚动条
     kwebView.navigationDelegate=self;
     kwebView.UIDelegate=self;
-    [kwebView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];//监听进度条 (@property (nonatomic, readonly) double estimatedProgress;) KVO
+    [kwebView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];//监听进度条@property(nonatomic, readonly)double estimatedProgress;KVO
     kwebView.allowsBackForwardNavigationGestures = YES;// 允许左右划手势导航，默认允许
     
     
     // !!!!! 注意此处baseUrl更改时下面退出登录的网址也要及时进行更改  ！！！！！！！
-    NSURL* url = [NSURL URLWithString:baseUrl];
-    NSURLRequest * urlReuqest = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:30.0f];
+    // 一周之后换掉
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyyMMdd"];// HH:mm:ss
+    NSString *toDayStr = [dateFormatter stringFromDate:date];
+    dayInteger = [toDayStr integerValue];
+    NSLog(@"current Date:%@ %ld",toDayStr,(long)dayInteger);
+    
+    NSURL* url = [[NSURL alloc]init];
+    if (dayInteger > 20170720) {
+        url = [NSURL URLWithString:baseUrl];
+    }
+    else{
+        url = [NSURL URLWithString:baseUrl2];//baseUrl2
+    }
+    urlReuqest = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:30.0f];
     
     
     //dispatch_async 是将block发送到指定线程去执行，当前线程不会等待，会继续向下执行。
@@ -103,7 +121,6 @@ static NSString *notice_index;
     
     //ios(10.3)开放的更换APP icon 的接口
     //[[UIApplication sharedApplication]setAlternateIconName:@"" completionHandler:^(NSError * _Nullable error) {  }];
-        
     
     
 }
@@ -114,9 +131,21 @@ static NSString *notice_index;
     [defaults setObject:nil forKey:@"mobileKey"];
     [defaults synchronize];
     
-    NSURL* url = [NSURL URLWithString:@"http://www.dev.piaojinsuo.com/site/loginOut"];
-    NSURLRequest * urlReuqest = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:30.0f];
-    [kwebView loadRequest:urlReuqest];
+    NSDate *date = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyyMMdd"];// HH:mm:ss
+    NSString *toDayStr = [dateFormatter stringFromDate:date];
+    dayInteger = [toDayStr integerValue];
+    NSURL* url = [[NSURL alloc]init];
+    if (dayInteger > 20170720) {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"https://www.uat.piaojinsuo.com/site/loginOut"]];//@"https://www.uat.piaojinsuo.com/site/loginOut"
+    }
+    else{
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"https://www.piaojinsuo.win/site/loginOut"]];
+    }
+    
+    NSURLRequest * urlReuqest2 = [[NSURLRequest alloc]initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:30.0f];
+    [kwebView loadRequest:urlReuqest2];
 }
 //OC调用JS查看CHWebViewDemo里的封装
 //javaScriptString是JS方法名，completionHandler是异步回调block
@@ -262,8 +291,10 @@ static NSString *notice_index;
         NSLog(@"JavaScriptycc:%@",message.body);
         [self delAccount:(NSString *)message.body];
         
-        //删除存储的手势验证码和用户手机号
+        //删除存储的手势验证码
         [self delPwd:nil];
+        
+        //删除存储的用户手机号
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:nil forKey:@"mobileKey"];
         [defaults synchronize];
@@ -306,6 +337,68 @@ static NSString *notice_index;
         NSLog(@"delAccountFAIL");
     }];
 }
+
+
+
+/*****************************    友盟分享      *******************/
+//网页链接分享
+//- (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType
+//{
+//    //创建分享消息对象
+//    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+//    
+//    //创建网页内容对象
+//    NSString* thumbURL =  @"https://mobile.umeng.com/images/pic/home/social/img-1.png";
+//    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"欢迎使用【友盟+】社会化组件U-Share" descr:@"欢迎使用【友盟+】社会化组件U-Share，SDK包最小，集成成本最低，助力您的产品开发、运营与推广！" thumImage:thumbURL];
+//    //设置网页地址
+//    shareObject.webpageUrl = @"http://mobile.umeng.com/social";
+//    
+//    //分享消息对象设置分享内容对象
+//    messageObject.shareObject = shareObject;
+//    
+//    //调用分享接口
+//    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+//        if (error) {
+//            UMSocialLogInfo(@"************Share fail with error %@*********",error);
+//        }else{
+//            if ([data isKindOfClass:[UMSocialShareResponse class]]) {
+//                UMSocialShareResponse *resp = data;
+//                //分享结果消息
+//                UMSocialLogInfo(@"response message is %@",resp.message);
+//                //第三方原始返回的数据
+//                UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
+//                
+//            }else{
+//                UMSocialLogInfo(@"response data is %@",data);
+//            }
+//        }
+//        //[self alertWithError:error];
+//    }];
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //分享 http://blog.csdn.net/zxtc19920/article/details/53432347
 -(void)share:(id)sender{
     
@@ -314,11 +407,11 @@ static NSString *notice_index;
     NSString * sharingText = (NSString *)[sender objectForKey:@"desc"];//[NSString stringWithFormat:@"《票金所》真棒，太好听了,我推荐给大家,下载地址：http://itunes.apple.com/cn/app/id"];
     //需要分享的文字，[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]获取应用名称
     UIImage * sharingImage1 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[sender objectForKey:@"image"]]]];
-    UIImage * sharingImage = [UIImage imageNamed:@"app-icon58的副本.png"];
+    UIImage * sharingImage = [UIImage imageNamed:@"58.png"];
     NSURL *url = [NSURL URLWithString:[sender objectForKey:@"url"]];
     //需要分享的图片
     if (sharingImage1 != nil) {
-        activityItems = @[sharingTitle,sharingText, sharingImage1, url];
+        activityItems = @[sharingTitle,sharingTitle, sharingImage1, url];
     } else {
         activityItems = @[sharingTitle,sharingText, sharingImage, url];
     }
@@ -364,6 +457,7 @@ static NSString *notice_index;
 }
 //alert 警告框
 -(void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
+    
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"JS-CALL-OC" message:message preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         completionHandler();
@@ -407,12 +501,12 @@ static NSString *notice_index;
 }
 -(void)addMBProgressHUD
 {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //[MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 -(void)dissMBProgressHUD
 {
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    //[MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -434,7 +528,7 @@ static NSString *notice_index;
  *  设置密码
  */
 - (void)setPwd:(id)sender {
-    NSString * senderText = (NSString *)sender;//{"uid":"3200107","mobile":"15255152533","name":"阮胜军","avatar":"/static/uploads/images/20170504/1493891181.082183784.png"}
+    NSString * senderText = (NSString *)sender;//{"uid":"209192","mobile":"18817776415","name":"杨晨晨","avatar":"https://static.piaojinsuo.com/20170515/1494815165.412632336.png"}
     NSData *data = [senderText   dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];//iOS自带JSON解析类
     NSString * mobileStr = [dic objectForKey:@"mobile"];
@@ -524,57 +618,6 @@ static NSString *notice_index;
 -(void)dealloc{
     NSLog(@"ViewController--->dealloc");
 }
-
-
-// Appdelegate 里的代码
-//4. app在杀死状态时, 推送上报触发的是didFinishLaunchingWithOptions事件。
-//   如果URL不为nil, 则跳转到推送消息的页面
-//**************   用 NSUserDefaults 保存推送过来的 URL 在ViewController里面检测是否有推送 URL 的存在 有的话则跳转
-//    if ([[launchOptions objectForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"] objectForKey:@"url"])
-//    {
-//        NSLog(@"OK launchOptions---->%@",launchOptions);
-//        NSString *urlStr = [[launchOptions objectForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"] objectForKey:@"url"];
-//
-//        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//        [userDefaults setObject:urlStr forKey:@"urlByNotification"];
-//        [userDefaults synchronize];
-//
-//
-//        [XGPush handleLaunching:launchOptions successCallback:^{
-//            NSLog(@"[XGDemo] Handle receive success");
-//        } errorCallback:^{
-//            NSLog(@"[XGDemo] Handle receive error");
-//        }];
-//
-//
-//    }
-
-// 主视图控制器里的代码
-//-(void)viewWillAppear:(BOOL)animated{
-//    NSLog(@"ViewController---->viewWillAppear");
-//    if ([[NSUserDefaults standardUserDefaults]objectForKey:@"urlByNotification"]) {
-//        NSLog(@"!!!!!!_________!!!!!updateForNotification");
-//        [self updateForNotification:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults]objectForKey:@"urlByNotification"]]];
-//
-//    }
-//}
-
-
-////接收到通知的方法
-//-(void)updateForNotification:(NSURL *)url
-//{
-//    if (url != nil)
-//    {
-//        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//        [userDefaults setObject:nil forKey:@"urlByNotification"];
-//        [userDefaults synchronize];
-//
-//        notificationViewController *noVc = [[notificationViewController alloc]init];
-//        noVc.url = url;
-//        NSLog(@"updateForNotification:%@",url);
-//        [self.navigationController pushViewController:noVc animated:YES];
-//    }
-//}
 
 
 @end

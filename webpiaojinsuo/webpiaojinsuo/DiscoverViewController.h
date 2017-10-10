@@ -11,4 +11,6 @@
 @interface DiscoverViewController : BaseViewController
 @property (weak, nonatomic) IBOutlet UITableView *mTableView;
 
+
+
 @end
